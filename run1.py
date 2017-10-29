@@ -1,20 +1,22 @@
-import tkinter
+from PyQt5.QtWidgets import *
 
-from tkinter import *
 
-mainWindow = Tk()
-mainWindow.title = "hw1"
+class myWidget(QDialog):
+    def __init__(self):
+        QDialog.__init__(self)
 
-frame = Frame(mainWindow)
-frame.pack()
-lbl = Label(frame, text="name")
-lbl.pack()
-txt = Entry(frame)
-txt.pack()
-btn = Button(frame, text="OK", width=15)
-btn.pack()
-image = PhotoImage(file="2.gif")
-label = Label(mainWindow, image=image)
-label.pack()
+        # 레이블,Edit,버튼 컨트롤
+        label1 = QLabel("images.jpeg")
 
-mainWindow.mainloop()
+        # 레이아웃
+        layout = QVBoxLayout()
+        layout.addWidget(label1)
+
+        # 다이얼로그에 레이아웃 지정
+        self.setLayout(layout)
+
+
+app = QApplication([])
+dialog = myWidget()
+dialog.show()
+app.exec_()
